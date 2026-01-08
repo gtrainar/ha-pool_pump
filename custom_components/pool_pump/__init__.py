@@ -22,7 +22,8 @@ from homeassistant.const import (
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.sun import get_astral_event_date, get_astral_event_next
 from homeassistant.util import dt as dt_util
-from homeassistant.core import Config, HomeAssistant
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers.typing import ConfigType
 
 from pypool_pump import AbacusFilteringDuration
 
@@ -66,7 +67,7 @@ CONFIG_SCHEMA = vol.Schema(
 SCAN_INTERVAL = timedelta(seconds=30)
 
 
-async def async_setup(hass: HomeAssistant, config: Config):
+async def async_setup(hass: HomeAssistant, config: ConfigType): -> bool:
     """Setup pool Pool Pump Mnanger using YAML."""
     if hass.data.get(DOMAIN) is None:
         hass.data.setdefault(DOMAIN, {})
