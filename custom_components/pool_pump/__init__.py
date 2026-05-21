@@ -67,7 +67,7 @@ CONFIG_SCHEMA = vol.Schema(
 SCAN_INTERVAL = timedelta(seconds=30)
 
 
-async def async_setup(hass: HomeAssistant, config: ConfigType): -> bool:
+async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Setup pool Pool Pump Mnanger using YAML."""
     if hass.data.get(DOMAIN) is None:
         hass.data.setdefault(DOMAIN, {})
